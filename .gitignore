@@ -1,0 +1,21 @@
+# 打包出来的扩展压缩包
+*.zip
+*.crx
+*.pem
+*.key
+
+# Windows / macOS 的目录垃圾
+Thumbs.db
+desktop.ini
+.DS_Store
+ehthumbs.db
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.log
+*.tmp
