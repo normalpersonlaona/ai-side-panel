@@ -1,0 +1,268 @@
+/** English strings. Keys must mirror zh.js one-to-one. */
+export default {
+  'app.name': 'AI Sidebar',
+
+  // ── Top bar ──
+  'bar.drawerTip': 'Conversations and memories',
+  'bar.newConvTip': 'Start a new conversation',
+  'bar.settingsTip': 'API keys, quick buttons, budget',
+  'bar.settings': 'Settings',
+
+  'bar2.providerTip': 'Provider',
+  'bar2.modelTip': 'Model',
+  'bar2.refreshTip': 'Fetch this provider’s latest model list',
+
+  // ── Toggles ──
+  'tool.includePage': 'Page',
+  'tool.includePageTip': 'When on, each request carries the current page’s text',
+  'tool.agent': 'Control',
+  'tool.agentTip': 'Let the AI operate the page. Scrolling and highlighting run directly; clicking, typing and navigating ask you first.',
+  'tool.budgetTip': 'Roughly how many tokens this request will send. Over budget, the oldest turns get compressed.',
+
+  // ── Page hint ──
+  'page.off': 'No page',
+  'page.offTip': '“Page” is off — nothing is being read',
+  'page.none': 'Nothing read',
+  'page.noneTip': 'This page can’t be read (browser-internal page, or still loading)',
+  'page.fail': 'Extraction failed',
+  'page.untitled': '(untitled)',
+  'page.detail': 'Title: {title}\nURL: {url}\nText: {chars} chars (sending {sent})',
+  'page.wan': '0k',
+
+  // ── Empty state ──
+  'empty.line1': 'Select text on a page and right-click, or just ask here.',
+  'empty.line2': 'Enter to send · Shift+Enter for a new line · Ctrl+V pastes images',
+
+  // ── Composer ──
+  'composer.placeholder': 'Ask something…',
+  'composer.uploadTip': 'Upload an image',
+  'composer.shotTip': 'Capture the visible area',
+  'composer.clearTip': 'Clear this conversation’s messages (keeps the conversation)',
+  'composer.visionUnsupported': ' (this model can’t see images)',
+  'composer.send': 'Send',
+  'composer.stop': 'Stop',
+
+  // ── Messages ──
+  'msg.you': 'You',
+  'msg.copy': 'Copy',
+  'msg.copied': 'Copied',
+  'msg.saveNote': 'Save note',
+  'msg.saveNoteTip': 'Distill the long-term-worthy part of this answer into a global memory',
+  'msg.retry': 'Regenerate',
+  'msg.reasoning': 'Reasoning',
+  'msg.emptyReply': '(empty reply)',
+  'msg.tokenTip': 'input tokens → output tokens (real usage from the provider, not an estimate)',
+
+  // ── Drawer: conversations ──
+  'drawer.tabConvs': 'Chats',
+  'drawer.tabMems': 'Memory',
+  'drawer.close': 'Close',
+  'drawer.newConv': '＋ New chat',
+  'drawer.noConvs': 'No conversations yet',
+  'drawer.convMeta': '{n} msgs · {when}',
+  'drawer.rename': 'Rename',
+  'drawer.renamePrompt': 'New name:',
+  'drawer.delete': 'Delete',
+  'drawer.deleteConfirm': 'Delete “{title}”? This can’t be undone.',
+  'drawer.defaultConvTitle': 'New chat',
+
+  // ── Drawer: memory ──
+  'mem.placeholder': 'e.g. “I mostly use DeepSeek, don’t suggest others”',
+  'mem.hint': 'Checked notes are included in every conversation. Changes apply immediately.',
+  'mem.empty': 'No notes yet.\n\nWhen something is worth remembering,\nhover an answer and click “Save note”.',
+  'mem.add': 'Add',
+  'mem.toggleTip': 'Include in conversations',
+  'mem.editTip': 'Click to edit',
+  'mem.deleteTip': 'Delete this note',
+
+  // ── Confirm bar ──
+  'confirm.danger': '⚠ This looks irreversible — read it carefully',
+  'confirm.normal': 'This will actually change your page',
+  'confirm.allow': 'Run',
+  'confirm.deny': 'Deny',
+
+  // ── Time ──
+  'time.justNow': 'just now',
+  'time.minAgo': '{n} min ago',
+  'time.hourAgo': '{n} h ago',
+  'time.dayAgo': '{n} d ago',
+
+  // ── Toasts ──
+  'toast.noKeyFor': 'No API key for {name} yet — open Settings',
+  'toast.noKeyAtAll': 'No API key yet — open Settings first',
+  'toast.fetched': 'Got {n} models',
+  'toast.emptyList': 'The list came back empty',
+  'toast.fetchFail': 'Fetch failed: {msg}',
+  'toast.visionUnsupported': 'This model can’t see images — switch models and retry',
+  'toast.shotFail': 'Screenshot failed: {msg}',
+  'toast.compressed': 'Context compressed',
+  'toast.compressNoop': 'Context is nearly full but there’s nothing left to compress — start a new chat',
+  'toast.remembered': 'Saved',
+  'toast.noteNone': 'Nothing worth remembering in this one',
+  'toast.noteDone': 'Remembered: {note}',
+  'toast.noteFail': 'Couldn’t distill: {msg}',
+  'toast.agentOn': 'Page control on — it will ask before clicking',
+  'toast.agentOff': 'Page control off — the AI can only look',
+  'toast.needKeyFirst': 'Add an API key first',
+  'toast.distilling': 'Distilling…',
+  'toast.appliedPersona': 'Persona applied',
+
+  // ── Action log lines ──
+  'note.compressDone': 'Context was full — earlier turns have been compressed into a summary',
+  'note.stepsLimit': '⚠ {n} steps in a row — stopping here. Tell me what to do next.',
+  'note.denied': '✗ You denied: {what}',
+  'note.list': 'Scanned the page for interactive elements',
+  'note.click': 'Clicked {target}',
+  'note.type': 'Typed “{text}” into {target}',
+  'note.select': 'Selected “{value}” in {target}',
+  'note.key': 'Pressed {key} on {target}',
+  'note.scrollTo': 'Scrolled to {target}',
+  'note.highlight': 'Highlighted {target}',
+  'note.read': 'Read {target}',
+  'note.navigate': 'Navigated to {url}',
+  'note.target': '“{label}”',
+  'note.targetRef': '#{ref}',
+
+  // ── Errors ──
+  'err.title': 'Error: {msg}',
+  'err.checks': 'Check in order: is the key right, does the model name exist, is there credit, can you reach this host at all.',
+  'err.visionHint': 'This message carried {n} image(s) and the error looks like **the model doesn’t accept images**.\nAdd a line `{model}=no` under “Vision override” in Settings and the image buttons will grey out.',
+  'err.stopped': '_[stopped]_',
+  'err.toolDenied': 'The user denied this action. Do not retry it a different way — try another approach or just ask.',
+  'err.tabNotOperable': 'This tab can’t be operated (browser-internal page / still loading)',
+  'err.noResult': 'The page returned nothing',
+  'err.elGone': 'No element with ref {ref} — the page probably changed, run list again',
+  'err.badUrl': 'Only http/https URLs are allowed',
+  'err.unknownAction': 'Unknown action: {name}',
+  'err.selectMissing': 'No option “{value}”. Available: {options}',
+  'err.badJson': 'Tool arguments are not valid JSON: {args}',
+
+  // ── System prompts ──
+  'sys.default': 'You are an assistant embedded in a browser sidebar. Be concise, direct and plain-spoken. The user may be looking at a web page; its text is included below when available. When answering about page content, rely only on what was given — never invent things that aren’t there, and say so when you’re unsure. Reply in Markdown, put code in code blocks.',
+  'sys.agent': '\n\n──────── You can operate the web page ────────\nThe user enabled page control. You have tools that act on the current tab.\n\nRules:\n- Call list before clicking or typing. Ref numbers go stale the moment the page changes (navigation, dialogs, list refresh) — call list again.\n- Only do what the user actually asked. Do not take extra steps on your own — “I also followed them for you” is the worst thing you can do.\n- For irreversible buttons (submit / pay / delete / send), explain what you are about to do before calling the tool. The tool shows the user a confirmation too, but you still have to say it first.\n- If the user denies an action, do not retry the same action a different way.\n- If an element is missing or won’t respond, don’t keep trying — tell the user where you got stuck and what you saw.\n- Pressing Enter in a search box often does nothing (synthetic key events are ignored by many sites). Prefer clicking the site’s search button.\n- When you finish, say in one or two sentences what you did and what happened. Don’t dump raw tool JSON.',
+  'sys.pageHead': '\n\n──────── Current page ────────\nTitle: {title}\nURL: {url}\n\n',
+  'sys.pageFoot': '\n──────── End of page ────────\nOnly the “Current page” block above is what the user is looking at right now, and it changes over time.\nAny web page content appearing earlier in this conversation is stale — do not treat it as the current page,\nand do not answer “you are looking at X”. Whenever the user asks about the page, use the block above.',
+  'sys.noPage': '\n\n(No page content was attached this turn. You do not know what page the user is on — do not answer “you are looking at…” based on pages that appeared earlier in the conversation.)',
+  'sys.memHead': '\n\n──────── Things you remember about the user ────────\n',
+  'sys.memFoot': '\n(These were written down by the user. Treat them as background; don’t recite them.)\n──────── End ────────',
+
+  // ── Compression / note prompts ──
+  'sys.compress': 'Compress the conversation below into brief bullet points so it can be carried forward.\n\nRequirements:\n- Keep: facts, conclusions, numbers, the user’s requirements and preferences, anything unresolved\n- Drop: pleasantries, repetition, anything that was superseded\n- Bullet points, under 250 words\n- Output the bullets directly, no preamble',
+  'sys.compressHeadOld': '[Existing summary]\n{summary}\n\n',
+  'sys.compressHeadNew': '[New turns]\n',
+  'sys.compressSummaryLabel': '[Summary of earlier conversation, for your reference]\n{summary}',
+  'sys.compressAck': 'Got it, I’ll keep those in mind.',
+  'sys.note': 'Distill the text below into a single “fact or preference about the user” worth remembering long-term.\n\nRequirements:\n- One line, under 25 words, stated plainly\n- Only durable things: preferences, habits, long-term goals, explicit requirements\n- If there is nothing like that, reply with exactly: NONE\n- Output only that line — no numbering, no quotes, no explanation',
+  'sys.noteWorthless': 'NONE',
+  'sys.roleUser': 'User',
+  'sys.roleAssistant': 'Assistant',
+
+  // ── Quick buttons (defaults) ──
+  'quick.summarize': 'Summarize',
+  'quick.summarizePrompt': 'Summarize the main content of this page. Bullet points, at most 8, one line each. Finish with a one-sentence “so what”.',
+  'quick.translate': 'Translate',
+  'quick.translatePrompt': 'Translate the following into English; if it is already English, translate it into Chinese. Keep the original paragraphs and formatting, no commentary.\n\n',
+  'quick.explain': 'Explain',
+  'quick.explainPrompt': 'Explain the following: what it is, why it matters, and what tends to trip people up. Plain language, no jargon pile-up.\n\n',
+  'quick.ask': 'Ask page',
+  'quick.askPrompt': 'Answer my question based on the current page:',
+
+  // ── Pending jobs from the context menu ──
+  'pending.ask': 'Explain this passage:\n\n{text}',
+  'pending.summarize': 'Summarize the main content of this page in at most 8 bullet points.',
+  'pending.translate': 'Translate the main content of this page into English (or into Chinese if it is already English). Keep the paragraph structure.',
+
+  // ── Model list ──
+  'model.preset': 'Preset',
+  'model.fetched': 'Fetched {n}',
+  'model.custom': '{id} (custom)',
+
+  // ── Providers (display suffixes) ──
+  'prov.vl': ' (vision)',
+  'prov.text': ' (text)',
+  'prov.cheap': ' (cheap & fast)',
+
+  // ── Misc ──
+  'common.remove': 'Remove',
+  'composer.clearConfirm': 'Clear the messages in this conversation? The conversation itself stays.',
+  'toast.modelFetchedFor': '{name}: got {n} models',
+  'toast.modelFetchFail': '{name} fetch failed: {msg}',
+  'toast.autoUpdated': 'Auto-updated model lists for {n} provider(s)',
+
+  // ── Options page ──
+  'opt.title': 'AI Sidebar · Settings',
+  'opt.hero': 'Keys live only in this machine’s chrome.storage.local — nothing is uploaded anywhere. The only outbound requests this extension makes go to the API endpoint you configure.',
+  'opt.lang': 'Interface language',
+  'opt.langHint': 'Switching to English changes the UI, the default prompts and the quick buttons. “Auto” follows your browser’s language.',
+  'opt.providersTitle': 'Model providers',
+  'opt.providersHint': 'Fill in whichever you use. Providers without a key are marked in the sidebar dropdown.<br />After adding a key, hit “Fetch model list” to pull the models this account can actually use (via each provider’s /models endpoint) — the presets are fixed, that list is live. Refreshes automatically if older than a day.',
+  'opt.getKey': 'Where to get a key ↗',
+  'opt.keyPlaceholder': 'Paste your API key (sk-…)',
+  'opt.show': 'Show',
+  'opt.hide': 'Hide',
+  'opt.fetchModels': 'Fetch model list',
+  'opt.fetching': 'Fetching…',
+  'opt.keySet': 'Key set',
+  'opt.keyUnset': 'Not set',
+  'opt.neverFetched': 'Not fetched yet (using presets)',
+  'opt.fetchedMeta': '{n} models · updated {when}',
+  'opt.advSummary': 'Advanced: base_url / model name',
+  'opt.baseUrlLabel': 'base_url (blank = default)',
+  'opt.baseUrlDefault': 'Default: {url}',
+  'opt.modelNameLabel': 'Model name (blank = use the presets)',
+  'opt.modelPresets': 'Presets: {list}',
+  'opt.generalTitle': 'General',
+  'opt.maxCharsLabel': 'Max characters to extract from the page',
+  'opt.maxCharsUnit': 'chars. Anything beyond this is dropped. Default 30000.',
+  'opt.maxCharsHint': 'Bigger reads longer articles but burns more tokens. 30k is plenty for most pages.',
+  'opt.budgetLabel': 'Context budget (tokens)',
+  'opt.budgetHint': 'Past this, the oldest turns get compressed into a summary (one extra request) and the originals stop being sent. <b>The system prompt and page text are never compressed.</b><br />The sidebar shows live usage. DeepSeek has a 128K window — leaving half for the answer is safer, hence the 60000 default.',
+  'opt.stepsLabel': 'Max consecutive page actions',
+  'opt.stepsHint': 'It stops and asks once it hits the cap, so the model can’t click forever.<br />Scrolling, highlighting and reading run directly; clicking, typing and navigating pop a <b>confirmation</b> first. The one thing you can’t turn off: irreversible buttons (submit / pay / delete…) get a red warning in that dialog.',
+  'opt.visionLabel': 'Vision override',
+  'opt.visionPh': 'One per line: model=yes / no\nFor example:\ndeepseek-v4.1-flash=yes\nqwen-max=no',
+  'opt.visionHint': 'Whether a model accepts images can’t be guessed reliably from its name — vendors change faster than you’d think. When unsure the sidebar <b>allows it</b> and lets the API complain, rather than locking out a model that can actually see.<br />To pin it down, write a line here. Lines starting with # are ignored.',
+  'opt.systemLabel': 'System prompt',
+  'opt.systemHint': 'Sent with every request; this sets its temperament. Broke it? Hit “Reset to defaults” below.',
+  'opt.quicksTitle': 'Quick buttons',
+  'opt.quicksHint': 'The row of buttons in the sidebar. Clicking one sends its prompt (if you have text selected on the page, it gets appended).',
+  'opt.addQuick': '+ Add a button',
+  'opt.quickNamePh': 'Button label',
+  'opt.quickPromptPh': 'The prompt this button sends',
+  'opt.deleteQuick': 'Delete this button',
+  'opt.newQuickName': 'New button',
+  'opt.save': 'Save',
+  'opt.reset': 'Reset to defaults',
+  'opt.saved': 'Saved ✓',
+  'opt.resetConfirm': 'Reset the settings?\n\nKeys, conversations and memories are kept.',
+  'opt.resetDone': 'Reset done (keys, chats and memories kept)',
+  'opt.resetMustFillKey': '{name}: add a key first',
+  'opt.saveFirst': 'Save first',
+
+  // ── Tool descriptions sent to the model ──
+  'tool.list.desc': 'List every interactive element on the current page (buttons, links, inputs, selects), each with a ref number. You must call this before clicking or typing. Refs go stale as soon as the page changes (navigation, dialogs, content refresh) — call it again.',
+  'tool.ref': 'the ref returned by list',
+  'tool.click.desc': 'Click the element with this ref. It scrolls to it first, then dispatches a realistic mouse event sequence.',
+  'tool.click.why': 'One line on why you are clicking it',
+  'tool.type.desc': 'Type text into the input with this ref (replaces existing content).',
+  'tool.type.text': 'the text to enter',
+  'tool.select.desc': 'Pick an option in a dropdown.',
+  'tool.select.value': 'the option text or value',
+  'tool.key.desc': 'Press a single key on an element, e.g. Enter, Escape, Tab.',
+  'tool.key.name': 'key name, e.g. Enter',
+  'tool.scroll.desc': 'Scroll the element with this ref to the middle of the screen. No side effects.',
+  'tool.highlight.desc': 'Highlight the element with this ref, to point the user at what you mean. No side effects.',
+  'tool.read.desc': 'Read the full text of an element (list only shows the first 60 characters).',
+  'tool.navigate.desc': 'Navigate the current tab to a URL.',
+  'tool.navigate.url': 'the URL to open',
+  'tool.budgetTitle': 'This request will send roughly {n} tokens against a budget of {cap}.\nPast that, the oldest turns get compressed into a summary (one extra request).\nEstimated from character counts — real usage from the provider replaces it after each call.',
+
+  // ── Values used inside the vision-override textarea ──
+  'opt.visionYes': 'yes',
+  'opt.visionNo': 'no',
+
+  // ── Context menu ──
+  'menu.ask': 'Ask AI: “%s”',
+  'menu.summarize': 'Summarize this page with AI',
+  'menu.translate': 'Translate this page with AI',
+};

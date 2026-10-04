@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "AI 侧边栏",
+    "description": "显示在工具栏和扩展列表里的名字"
+  },
+  "extDesc": {
+    "message": "常驻浏览器侧边栏的 AI 助手：读当前网页、总结、翻译、看图，还能直接替你操作页面。支持 DeepSeek / 智谱 GLM / 通义千问 / OpenAI GPT / 小米 MiMo 等任何 OpenAI 兼容接口。",
+    "description": "显示在扩展列表里的描述"
+  }
+}

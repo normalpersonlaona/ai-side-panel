@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 侧边栏</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+
+  <!-- ── 顶栏：当前对话 + 新对话 + 设置 ─────────────────── -->
+  <header class="bar">
+    <button id="btn-drawer" class="title-btn" data-i18n-title="bar.drawerTip" title="对话和记忆">
+      <span id="conv-title">新对话</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <button id="btn-new" class="icon-btn" data-i18n-title="bar.newConvTip" title="开一个新对话">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+           stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button id="open-options" class="txt-btn" data-i18n-title="bar.settingsTip" data-i18n="bar.settings" title="填 Key、改快捷按钮、调预算">设置</button>
+  </header>
+
+  <!-- ── 服务商 / 模型 ──────────────────────────────────── -->
+  <div class="bar2">
+    <select id="provider" data-i18n-title="bar2.providerTip" title="服务商"></select>
+    <select id="model" data-i18n-title="bar2.modelTip" title="模型"></select>
+    <button id="btn-refresh-models" class="icon-btn" data-i18n-title="bar2.refreshTip" title="拉取这家最新的模型列表">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+        <path d="M21 3v6h-6" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── 本页开关 + 上下文预算 ─────────────────────────── -->
+  <div class="toolrow">
+    <label class="switch" data-i18n-title="tool.includePageTip" title="打开后，提问会带上当前网页正文">
+      <input type="checkbox" id="include-page" checked />
+      <span class="track"><span class="knob"></span></span>
+      <span class="switch-label" data-i18n="tool.includePage">包含本页</span>
+    </label>
+    <label class="switch" data-i18n-title="tool.agentTip" title="打开后 AI 可以操作页面。滚动/高亮这类直接做；点击、填表、跳转这类会先弹确认条等你点头。">
+      <input type="checkbox" id="agent-mode" />
+      <span class="track"><span class="knob"></span></span>
+      <span class="switch-label" data-i18n="tool.agent">操控页面</span>
+    </label>
+    <span id="page-hint" class="page-hint dim" title="">—</span>
+    <span id="budget" class="budget dim"
+          data-i18n-title="tool.budgetTip" title="这次请求大概要发多少 token。超了会自动把最老的对话压成摘要">—</span>
+  </div>
+
+  <!-- ── 快捷按钮 ───────────────────────────────────────── -->
+  <div id="quick" class="quick"></div>
+
+  <!-- ── 对话区 ─────────────────────────────────────────── -->
+  <main id="log" class="log" aria-live="polite">
+    <div class="empty" id="empty">
+      <div class="empty-icon">◎</div>
+      <p data-i18n="empty.line1">选中网页文字再点右键，或者直接在这里问。</p>
+      <p class="dim small" data-i18n="empty.line2">Enter 发送 · Shift+Enter 换行 · Ctrl+V 可粘贴图片</p>
+    </div>
+  </main>
+
+  <div id="thumbs" class="thumbs" hidden></div>
+
+  <!-- ── 输入区 ─────────────────────────────────────────── -->
+  <footer class="composer">
+    <!-- AI 要动页面时的确认条 -->
+    <div id="confirm-bar" class="confirm-bar" hidden>
+      <div class="cb-main">
+        <span id="cb-title" class="cb-title"></span>
+        <span id="cb-detail" class="cb-detail dim small"></span>
+      </div>
+      <div class="cb-btns">
+        <button id="cb-allow" class="primary" data-i18n="confirm.allow">执行</button>
+        <button id="cb-deny" class="txt-btn danger" data-i18n="confirm.deny">拒绝</button>
+      </div>
+    </div>
+
+    <textarea id="input" rows="1" data-i18n-ph="composer.placeholder" placeholder="问点什么…"></textarea>
+
+    <div class="composer-btns">
+      <div class="left">
+        <button id="btn-file" class="icon-btn" title="上传图片">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="m21 15-5-5L5 21" />
+          </svg>
+        </button>
+
+        <button id="btn-shot" class="icon-btn" title="截取当前网页可见区域">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8V5a2 2 0 0 1 2-2h3" />
+            <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+            <path d="M21 16v3a2 2 0 0 1-2 2h-3" />
+            <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+            <circle cx="12" cy="12" r="2.5" />
+          </svg>
+        </button>
+
+        <button id="btn-clear" class="icon-btn" title="清空本对话的消息（保留对话本身）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18" />
+            <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" />
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="right">
+        <button id="btn-stop" class="txt-btn danger" data-i18n="composer.stop" hidden>停止</button>
+        <button id="btn-send" class="primary" data-i18n="composer.send">发送</button>
+      </div>
+    </div>
+  </footer>
+
+  <input type="file" id="file-input" accept="image/*" multiple hidden />
+
+  <!-- ── 抽屉：对话列表 / 全局记忆 ─────────────────────── -->
+  <div id="scrim" class="scrim" hidden></div>
+
+  <aside id="drawer" class="drawer" hidden aria-label="对话和记忆">
+    <div class="drawer-head">
+      <div class="tabs">
+        <button class="tab on" data-tab="convs" data-i18n="drawer.tabConvs">对话</button>
+        <button class="tab" data-tab="mems"><span data-i18n="drawer.tabMems">记忆</span><span id="mem-count" class="cnt"></span></button>
+      </div>
+      <button id="drawer-close" class="icon-btn" title="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- 对话 -->
+      <div id="pane-convs" class="pane">
+        <button id="btn-new2" class="btn-block" data-i18n="drawer.newConv">＋ 新对话</button>
+        <div id="conv-list" class="list"></div>
+      </div>
+
+      <!-- 记忆 -->
+      <div id="pane-mems" class="pane" hidden>
+        <div class="mem-add">
+          <textarea id="mem-input" rows="2"
+                    data-i18n-ph="mem.placeholder" placeholder="记一条，比如「我主要用 DeepSeek，别推荐别的」"></textarea>
+          <button id="mem-add-btn" class="primary" data-i18n="mem.add">添加</button>
+        </div>
+        <p class="dim small hint" data-i18n="mem.hint">勾上的会带进每一次对话，立刻生效。</p>
+        <div id="mem-list" class="list"></div>
+      </div>
+    </div>
+  </aside>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>

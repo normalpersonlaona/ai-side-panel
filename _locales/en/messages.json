@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "AI Sidebar",
+    "description": "Extension name shown in the toolbar and the extensions list."
+  },
+  "extDesc": {
+    "message": "An AI assistant that lives in your browser sidebar: read the current page, summarize, translate, see images, and operate the page for you. Works with DeepSeek, Zhipu GLM, Qwen, OpenAI GPT, Xiaomi MiMo and any OpenAI-compatible API.",
+    "description": "Extension description shown in the extensions list."
+  }
+}

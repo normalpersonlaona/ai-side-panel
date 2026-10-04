@@ -1,0 +1,268 @@
+/** 中文文案。键名和 en.js 必须一一对应。 */
+export default {
+  'app.name': 'AI 侧边栏',
+
+  // ── 侧边栏顶栏 ──
+  'bar.drawerTip': '对话和记忆',
+  'bar.newConvTip': '开一个新对话',
+  'bar.settingsTip': '填 Key、改快捷按钮、调预算',
+  'bar.settings': '设置',
+
+  'bar2.providerTip': '服务商',
+  'bar2.modelTip': '模型',
+  'bar2.refreshTip': '拉取这家最新的模型列表',
+
+  // ── 开关行 ──
+  'tool.includePage': '包含本页',
+  'tool.includePageTip': '打开后，提问会带上当前网页正文',
+  'tool.agent': '操控页面',
+  'tool.agentTip': '打开后 AI 可以操作页面。滚动/高亮这类直接做；点击、填表、跳转这类会先弹确认条等你点头。',
+  'tool.budgetTip': '这次请求大概要发多少 token。超了会自动把最老的对话压成摘要',
+
+  // ── 页面识别提示 ──
+  'page.off': '未读页面',
+  'page.offTip': '「包含本页」关着，不会读任何页面',
+  'page.none': '没读到页面',
+  'page.noneTip': '当前这个页面读不到内容（可能是浏览器内置页，或者还没加载完）',
+  'page.fail': '提取失败',
+  'page.untitled': '(无标题)',
+  'page.detail': '标题：{title}\nURL：{url}\n正文：{chars} 字（截取后发出 {sent} 字）',
+  'page.wan': '万',
+
+  // ── 空状态 ──
+  'empty.line1': '选中网页文字再点右键，或者直接在这里问。',
+  'empty.line2': 'Enter 发送 · Shift+Enter 换行 · Ctrl+V 可粘贴图片',
+
+  // ── 输入区 ──
+  'composer.placeholder': '问点什么…',
+  'composer.uploadTip': '上传图片',
+  'composer.shotTip': '截取当前网页可见区域',
+  'composer.clearTip': '清空本对话的消息（保留对话本身）',
+  'composer.visionUnsupported': '（当前模型不支持看图）',
+  'composer.send': '发送',
+  'composer.stop': '停止',
+
+  // ── 消息 ──
+  'msg.you': '你',
+  'msg.copy': '复制',
+  'msg.copied': '已复制',
+  'msg.saveNote': '存为笔记',
+  'msg.saveNoteTip': '把这条回答里值得长期记住的东西，提炼成一条全局记忆',
+  'msg.retry': '重新生成',
+  'msg.reasoning': '思考过程',
+  'msg.emptyReply': '(空回复)',
+  'msg.tokenTip': '输入 token → 输出 token（服务商返回的真实值，不是估算）',
+
+  // ── 抽屉：对话 ──
+  'drawer.tabConvs': '对话',
+  'drawer.tabMems': '记忆',
+  'drawer.close': '关闭',
+  'drawer.newConv': '＋ 新对话',
+  'drawer.noConvs': '还没有对话',
+  'drawer.convMeta': '{n} 条 · {when}',
+  'drawer.rename': '重命名',
+  'drawer.renamePrompt': '改个名字：',
+  'drawer.delete': '删除',
+  'drawer.deleteConfirm': '删掉「{title}」？删了就找不回来了。',
+  'drawer.defaultConvTitle': '新对话',
+
+  // ── 抽屉：记忆 ──
+  'mem.placeholder': '记一条，比如「我主要用 DeepSeek，别推荐别的」',
+  'mem.hint': '勾上的会带进每一次对话，立刻生效。',
+  'mem.empty': '还没有笔记。\n\n聊到值得长期记住的东西时，\n把鼠标移到某条回答上，点「存为笔记」。',
+  'mem.add': '添加',
+  'mem.toggleTip': '带不带进对话',
+  'mem.editTip': '点一下就能改',
+  'mem.deleteTip': '删掉这条',
+
+  // ── 操控确认条 ──
+  'confirm.danger': '⚠ 这看着像不可逆的操作，看清楚再点',
+  'confirm.normal': '确认后它会真的动你的页面',
+  'confirm.allow': '执行',
+  'confirm.deny': '拒绝',
+
+  // ── 时间 ──
+  'time.justNow': '刚刚',
+  'time.minAgo': '{n} 分钟前',
+  'time.hourAgo': '{n} 小时前',
+  'time.dayAgo': '{n} 天前',
+
+  // ── 提示条 ──
+  'toast.noKeyFor': '还没填 {name} 的 API Key，点右上「设置」',
+  'toast.noKeyAtAll': '还没填任何 API Key，先点右上「设置」',
+  'toast.fetched': '拉到 {n} 个模型',
+  'toast.emptyList': '拉到了个空列表',
+  'toast.fetchFail': '拉取失败：{msg}',
+  'toast.visionUnsupported': '当前模型不支持看图，换个模型再试',
+  'toast.shotFail': '截图失败：{msg}',
+  'toast.compressed': '上下文已压缩',
+  'toast.compressNoop': '上下文快满了，但没什么可压的 —— 建议开个新对话',
+  'toast.remembered': '记住了',
+  'toast.noteNone': '这段里没什么值得长期记的',
+  'toast.noteDone': '已记住：{note}',
+  'toast.noteFail': '提炼失败：{msg}',
+  'toast.agentOn': '已开启操控 —— 点东西之前会先问你',
+  'toast.agentOff': '已关闭操控，AI 只能看不能动',
+  'toast.needKeyFirst': '先填 Key',
+  'toast.distilling': '提炼中…',
+  'toast.appliedPersona': '人设已应用',
+
+  // ── 对话里记的动作 ──
+  'note.compressDone': '上下文满了，上面更早的对话已经被压成摘要',
+  'note.stepsLimit': '⚠ 已经连续操作 {n} 步了，先停下 —— 你接着说要干什么',
+  'note.denied': '✗ 你拒绝了：{what}',
+  'note.list': '扫描页面上的可操作元素',
+  'note.click': '点击 {target}',
+  'note.type': '往 {target} 填入「{text}」',
+  'note.select': '在 {target} 选择「{value}」',
+  'note.key': '在 {target} 按 {key}',
+  'note.scrollTo': '滚动到 {target}',
+  'note.highlight': '高亮 {target}',
+  'note.read': '读取 {target} 的内容',
+  'note.navigate': '跳转到 {url}',
+  'note.target': '「{label}」',
+  'note.targetRef': '#{ref}',
+
+  // ── 出错 ──
+  'err.title': '出错了：{msg}',
+  'err.checks': '依次检查：Key 对不对、模型名存不存在、余额够不够、能不能直连这家。',
+  'err.visionHint': '你这条带了 {n} 张图，而这个报错看着像是**模型不接受图片**。\n去设置页最下面「看图能力覆盖」写一行 `{model}=不能`，图片按钮就会自动灰掉。',
+  'err.stopped': '_[已停止]_',
+  'err.toolDenied': '用户拒绝了这个操作。不要换写法重试，换个思路或者直接问用户',
+  'err.tabNotOperable': '当前这个标签页不能操作（浏览器内置页 / 还没加载完）',
+  'err.noResult': '页面没有返回结果',
+  'err.elGone': '找不到编号 {ref} 的元素 —— 页面多半变了，重新 list 一次',
+  'err.badUrl': '只允许跳 http/https 地址',
+  'err.unknownAction': '不认识的动作：{name}',
+  'err.selectMissing': '下拉框里没有「{value}」。可选项：{options}',
+  'err.badJson': '工具参数不是合法 JSON：{args}',
+
+  // ── 发给模型的系统提示 ──
+  'sys.default': '你是一个嵌入在浏览器侧边栏里的助手。回答要简洁、直接、说人话。用户可能正在看某个网页，页面内容会附在下面（如果有的话）。涉及页面内容时，只依据给到的内容回答，不要编造页面上没有的东西；不确定就直说。回答用 Markdown，代码放代码块里。',
+  'sys.agent': '\n\n──────── 你可以操作网页 ────────\n用户打开了「操控页面」，你手上有一组工具能直接动当前这个标签页。\n\n规矩：\n- 想点什么、填什么之前，先调 list 拿到编号。页面一旦变化（跳转、弹窗、列表刷新）编号就失效，要重新 list。\n- 只做用户明确要求的事。别顺手多做一步 —— 「顺便帮你点了个关注」这种最讨厌。\n- 遇到「提交 / 支付 / 删除 / 发送」这类不可逆的按钮，先跟用户说清楚你要干什么再动手（工具本身也会弹确认给用户，但你得先说）。\n- 用户拒绝了某个操作，就不要再换个写法重试同一个动作。\n- 元素找不到、点不动，别硬试，直接告诉用户你卡在哪一步、看到了什么。\n- 在搜索框里按 Enter 经常不管用（合成按键事件很多站点不认）。想触发搜索，优先找页面上的「搜索」按钮点它，别在输入框里敲回车。\n- 做完用一两句人话说明你干了什么、结果如何。别把工具返回的 JSON 原样倒出来。',
+  'sys.pageHead': '\n\n──────── 当前网页 ────────\n标题：{title}\nURL：{url}\n\n',
+  'sys.pageFoot': '\n──────── 网页结束 ────────\n只有上面这个「当前网页」才是用户此刻正在看的页面，它随时会变。\n历史对话里出现过的任何网页内容都已经过期 —— 不要把它当成用户当前在看的页面，\n也不要回答「你现在看的是某某页面」。用户问页面上有什么，一律以上面那一段为准。',
+  'sys.noPage': '\n\n（这一轮没有附网页内容。用户此刻在哪个页面你不知道 —— 不要根据历史对话里出现过的网页来回答「你现在看的是…」。）',
+  'sys.memHead': '\n\n──────── 你记得的关于用户的事 ────────\n',
+  'sys.memFoot': '\n（这些是用户自己记下来的，当作背景，别专门复述）\n──────── 结束 ────────',
+
+  // ── 压缩 / 提炼用的提示词 ──
+  'sys.compress': '把下面这段对话压缩成简明的要点，供后续对话继续使用。\n\n要求：\n- 保留：事实、结论、数字、用户提出的要求和偏好、还没解决的问题\n- 丢掉：寒暄、重复、已经被推翻或修正过的内容\n- 用要点列表，350 字以内\n- 直接输出要点，不要任何前言后语',
+  'sys.compressHeadOld': '【已有摘要】\n{summary}\n\n',
+  'sys.compressHeadNew': '【新增对话】\n',
+  'sys.compressSummaryLabel': '【早先对话的摘要，供你参考】\n{summary}',
+  'sys.compressAck': '好，我记着这些。',
+  'sys.note': '把下面这段内容提炼成一条「关于用户的事实或偏好」，用来长期记住。\n\n要求：\n- 一条，60 字以内，写成陈述句\n- 只写值得长期记住的：用户的偏好、习惯、长期目标、明确的要求\n- 如果这段内容里没有这类信息，只回三个字：无价值\n- 直接输出这一条，不要编号、不要引号、不要解释',
+  'sys.noteWorthless': '无价值',
+  'sys.roleUser': '用户',
+  'sys.roleAssistant': '助手',
+
+  // ── 快捷按钮（默认值）──
+  'quick.summarize': '总结本页',
+  'quick.summarizePrompt': '总结当前网页的主要内容。用要点列表，不超过 8 条，每条一行。最后给一句「所以呢」的结论。',
+  'quick.translate': '翻译',
+  'quick.translatePrompt': '把下面的内容翻译成中文；如果它已经是中文，就翻译成英文。保持原有段落和格式，不要加解释。\n\n',
+  'quick.explain': '解释这段',
+  'quick.explainPrompt': '解释下面的内容：它是什么、为什么重要、有什么容易踩的坑。说人话，别堆术语。\n\n',
+  'quick.ask': '问本页',
+  'quick.askPrompt': '基于当前网页的内容回答我的问题：',
+
+  // ── 右键菜单塞进来的活 ──
+  'pending.ask': '解释一下这段内容：\n\n{text}',
+  'pending.summarize': '总结当前网页的主要内容，用要点列表，不超过 8 条。',
+  'pending.translate': '把当前网页的主要内容翻译成中文；如果已经是中文，翻译成英文。保持段落结构。',
+
+  // ── 模型列表 ──
+  'model.preset': '预置',
+  'model.fetched': '已拉取 {n} 个',
+  'model.custom': '{id}（自定义）',
+
+  // ── 服务商（显示名）──
+  'prov.vl': '（看图）',
+  'prov.text': '（文本）',
+  'prov.cheap': '（便宜快）',
+
+  // ── 杂项 ──
+  'common.remove': '移除',
+  'composer.clearConfirm': '清空这个对话里的消息？对话本身留着。',
+  'toast.modelFetchedFor': '{name}：拉到 {n} 个模型',
+  'toast.modelFetchFail': '{name} 拉取失败：{msg}',
+  'toast.autoUpdated': '已自动更新 {n} 家的模型列表',
+
+  // ── 设置页 ──
+  'opt.title': 'AI 侧边栏 · 设置',
+  'opt.hero': 'Key 只存在这台机器的 chrome.storage.local 里，不会上传到任何地方。插件唯一的对外请求，就是打给你自己填的那个 API。',
+  'opt.lang': '界面语言',
+  'opt.langHint': '切成 English 之后，界面、默认提示词、快捷按钮都会跟着变。「跟随浏览器」是按系统的语言设置来。',
+  'opt.providersTitle': '模型服务商',
+  'opt.providersHint': '填哪家就用哪家。没填 Key 的会在侧边栏下拉里标出来。<br />填完 Key 点「拉取模型列表」，就能把这家**当前真实可用**的模型同步过来（走各家的 /models 接口）—— 预置列表是死的，这个才是活的。超过一天没用会自动更新一次。',
+  'opt.getKey': '去哪里拿 Key ↗',
+  'opt.keyPlaceholder': '粘贴 API Key（sk-…）',
+  'opt.show': '显示',
+  'opt.hide': '隐藏',
+  'opt.fetchModels': '拉取模型列表',
+  'opt.fetching': '拉取中…',
+  'opt.keySet': '已填 Key',
+  'opt.keyUnset': '未填',
+  'opt.neverFetched': '还没拉过（用预置列表）',
+  'opt.fetchedMeta': '{n} 个 · 更新于 {when}',
+  'opt.advSummary': '高级：改 base_url / 指定模型名',
+  'opt.baseUrlLabel': 'base_url（留空用默认）',
+  'opt.baseUrlDefault': '默认：{url}',
+  'opt.modelNameLabel': '模型名（留空用下拉里的预置）',
+  'opt.modelPresets': '预置可选：{list}',
+  'opt.generalTitle': '通用',
+  'opt.maxCharsLabel': '「包含本页」时最多截取多少字',
+  'opt.maxCharsUnit': '字。超了就只取前面这一段。默认 30000。',
+  'opt.maxCharsHint': '调大能读更长的文章，但也更烧 token。大部分文章 3 万字够用了。',
+  'opt.budgetLabel': '上下文预算（token）',
+  'opt.budgetHint': '聊到超过这个数，就会自动把最早的那批对话压成一段摘要（多花一次请求），压缩过的原文不再发送。<b>系统提示词和网页正文永远不参与压缩。</b><br />侧边栏顶部会实时显示当前用量。DeepSeek 是 128K 上下文，留一半给自己、一半给回答比较稳，所以默认给 60000。',
+  'opt.stepsLabel': '操控页面时，最多连续操作几步',
+  'opt.stepsHint': '到了上限就停下问你，免得模型自己点起来没完。<br />另外：滚动、高亮、读取这类<b>没有副作用</b>的动作直接执行；点击、填表、跳转这类会<b>先弹一条确认</b>等你点头。改不掉的只有这一点 —— 不可逆的按钮（提交/支付/删除…）确认框会标红。',
+  'opt.visionLabel': '看图能力覆盖',
+  'opt.visionPh': '一行一个：模型名=能 / 不能\n例如：\ndeepseek-v4.1-flash=能\nqwen-max=不能',
+  'opt.visionHint': '一个模型能不能吃图片，光看名字猜不准（各家改得比想象的快）。拿不准的时候侧边栏一律<b>放行</b>，让它自己报错，也不会把能看图的模型锁上。<br />想定死就在这里写一行，以 # 开头的行会被忽略。',
+  'opt.systemLabel': '系统提示词',
+  'opt.systemHint': '这段每次都会发给模型，定它的脾气。改坏了点下面「恢复默认」。',
+  'opt.quicksTitle': '快捷按钮',
+  'opt.quicksHint': '侧边栏里那一排按钮。点一下就把提示词发出去（如果你在页面上选中了文字，会自动附在后面）。',
+  'opt.addQuick': '+ 加一个按钮',
+  'opt.quickNamePh': '按钮名',
+  'opt.quickPromptPh': '点了这个按钮要发出去的提示词',
+  'opt.deleteQuick': '删掉这个按钮',
+  'opt.newQuickName': '新按钮',
+  'opt.save': '保存',
+  'opt.reset': '恢复默认设置',
+  'opt.saved': '已保存 ✓',
+  'opt.resetConfirm': '把设置项恢复默认？\n\nKey、对话、全局记忆都会保留。',
+  'opt.resetDone': '已恢复默认（Key、对话、记忆都留着）',
+  'opt.resetMustFillKey': '{name}：先填 Key 再拉',
+  'opt.saveFirst': '先保存再试',
+
+  // ── 发给模型的工具说明 ──
+  'tool.list.desc': '列出当前页面上所有可交互的元素（按钮、链接、输入框、下拉框），每个带一个编号。想点东西或填东西之前必须先调这个。页面一旦变化（跳转、弹窗、内容刷新），编号就失效，要重新调。',
+  'tool.ref': 'list 返回的编号',
+  'tool.click.desc': '点击编号对应的元素。会先滚动到它，再模拟真实鼠标事件。',
+  'tool.click.why': '一句话说明为什么要点它',
+  'tool.type.desc': '往编号对应的输入框里填字（会覆盖原有内容）。',
+  'tool.type.text': '要填的内容',
+  'tool.select.desc': '在下拉框里选一项。',
+  'tool.select.value': '选项的文字或 value',
+  'tool.key.desc': '在某个元素上按一次键，比如 Enter、Escape、Tab。',
+  'tool.key.name': '键名，比如 Enter',
+  'tool.scroll.desc': '把编号对应的元素滚到屏幕中间。没有副作用。',
+  'tool.highlight.desc': '把编号对应的元素高亮一下，用来向用户指出你在说哪个地方。没有副作用。',
+  'tool.read.desc': '读取编号对应元素的完整文字（列表里只给了前 60 字，要全的用这个）。',
+  'tool.navigate.desc': '把当前标签页跳到某个网址。',
+  'tool.navigate.url': '要跳到的网址',
+  'tool.budgetTitle': '这次请求大概要发 {n} 个 token，预算 {cap}。\n超了会自动把最早的对话压成摘要（这条只用一次额外请求）。\n字符数粗算的，发完会用服务商返回的真实用量校准。',
+
+  // ── 看图覆盖文本框里的写法 ──
+  'opt.visionYes': '能',
+  'opt.visionNo': '不能',
+
+  // ── 右键菜单 ──
+  'menu.ask': '问问 AI：「%s」',
+  'menu.summarize': '用 AI 总结本页',
+  'menu.translate': '用 AI 翻译本页',
+};
